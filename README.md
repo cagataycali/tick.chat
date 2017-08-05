@@ -40,7 +40,7 @@ Yay! You decided first look.
 * [Reviews are welcome! 😻](https://producthunt.com/posts/tick-chat)
 * [Contributions are welcome! 😻](https://github.com/cagataycali/tick.chat/blob/master/contributions.md)
 * Sharing are welcome!
-  * Twitter, reddit, hackernews, whatever you want.
+  * [Twitter](https://twitter.com/intent/tweet?text=Hey,%20I%27m%20using%20Tick.Chat!%20https%3A%2F%2Ftick.chat%2F&via=tickchat), reddit, hackernews, whatever you want.
 
 
 
