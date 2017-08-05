@@ -8,6 +8,9 @@ You can help me for coding, typo, grammar issues or whatever type you want.
 
 **[Issues / Todos](https://github.com/cagataycali/tick.chat/issues)**
 
+-----
+
+
 ## Backend 🌚
 
 Backend coded in NodeJS. [Right here](https://github.com/cagataycali/tick.chat/blob/master/server/)
@@ -53,6 +56,6 @@ npm run build --report # Or yarn run build --report
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader). 
 
-
+----
 
 # 🕶

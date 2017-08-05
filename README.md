@@ -1,5 +1,5 @@
 <h3 align="center">
-![tick-logo](http://res.cloudinary.com/cagataycali/image/upload/c_scale,h_200/v1501901075/tick-logo.png)
+  <img src="http://res.cloudinary.com/cagataycali/image/upload/c_scale,h_200/v1501901075/tick-logo.png">
 </h3>
 
 <h4 align="center">Tick.Chat Manifest 👀</h4>
