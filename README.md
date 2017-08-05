@@ -16,7 +16,7 @@ If the app asks, we have to think about our privacy. I thought a lot. That's the
 
 **What does the app brings you?** 🤷‍
 
-The right question is, *who are you?* If you strict politician, you can do politics. If you a real cat lover you can give an advice who has cats. If you are a product owner, ask for feedback your last cool app. There isn't any limit. The sky is the limit. Eventually, Tick.Chat's main aim has your fun/productive time. If the vision got you, keep reading please. 😻
+The right question is, *who are you?* If you strict politician, you can do politics. If you a real cat lover you can give an advice who has cats. If you are a product owner, ask for feedback your last cool app. The sky is the limit. Eventually, Tick.Chat's main aim has your fun/productive time. If the vision got you, keep reading please. 😻
 
 **Privacy & Security ? 🙄**
 
