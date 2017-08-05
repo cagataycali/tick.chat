@@ -6,7 +6,7 @@
 
 -----
 
-Tick's main aim is to removing prejudgment. You can chat nearby persons in anonymously. There have been *tons of startups* for these.
+Tick's main aim is to removing prejudgments. You can chat nearby persons in anonymously. There have been *tons of startups* for these.
 
 **But wait, why I did Tick.Chat?** 🤔
 
