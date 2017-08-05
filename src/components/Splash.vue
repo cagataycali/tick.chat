@@ -1,6 +1,6 @@
 <template>
   <div class='centerWrapper'>
-    <div class='centerMap'> <i style="font-size: 6em;" id="splash" class=" fa fa-check faa-bounce animated"></i></div>
+    <div class='centerMap'> <i style="font-size: 6em;" id="splash" class="fa fa-check faa-bounce animated"></i></div>
   </div>
 </template>
 

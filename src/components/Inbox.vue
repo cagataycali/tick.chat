@@ -67,10 +67,6 @@ export default {
     background-color: #333333
   }
 
-  .layout-dark .list-block ul, .list-block.layout-dark ul {
-    /*background-color: #EEEEEE*/
-  }
-
   .layout-dark .navbar, .layout-dark .subnavbar, .navbar.layout-dark, .subnavbar.layout-dark {
     background-color: #2e2e2e;
     color: #EEEEEE;

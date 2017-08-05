@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <f7-statusbar></f7-statusbar> -->
     <f7-views>
       <f7-view id="main-view"  main layout="dark" :theme="theme">
         <f7-pages>
@@ -143,10 +142,6 @@ export default {
 
 .layout-dark .login-screen-content, .layout-dark .page, .layout-dark .panel, .page.layout-dark, .panel.layout-dark {
   background-color: #333333
-}
-
-.layout-dark .list-block ul, .list-block.layout-dark ul {
-  /*background-color: #EEEEEE*/
 }
 
 .layout-dark .navbar, .layout-dark .subnavbar, .navbar.layout-dark, .subnavbar.layout-dark {
