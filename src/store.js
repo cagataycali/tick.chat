@@ -88,7 +88,7 @@ const mutations = {
         position: user.position,
         icon: {
           anchor: {x: user.position.lat, y: user.position.lng},
-          url: `https://static.tick.fun/${state.user.id === user.id ? 'tick' : 'child'}.svg`,
+          url: `https://tick.chat/static/${state.user.id === user.id ? 'tick' : 'child'}.svg`,
           scaledSize: {b:"px", f:"px", height: 32, width: 32}
         },
         data: user.data
@@ -112,7 +112,7 @@ const mutations = {
         position: user.position,
         icon: {
           anchor: {x: user.position.lat, y: user.position.lng},
-          url: `https://static.tick.fun/${isMe ? 'tick' : 'child'}.svg`,
+          url: `https://tick.chat/static/${isMe ? 'tick' : 'child'}.svg`,
           scaledSize: {b:"px", f:"px", height: 32, width: 32}
         },
         data: user.data
