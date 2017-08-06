@@ -14,7 +14,7 @@ Cause those apps wasn't unique. Their visions lightweight. Tick.Chat's vision is
 If an app says you, "Hey, you can chat anonymously!", the app mustn't have registration step. The app shouldn't ask gender, name, profile picture and whatever which your personal identity.
 If the app asks, we have to think about our privacy. I thought a lot. That's the reason I write Tick.Chat.
 
-**What does the app brings you?** 🤷‍
+**What does the app brings you?** :thought_balloon:
 
 The right question is, *who are you?* If you strict politician, you can do politics. If you a real cat lover you can give an advice who has cats. If you are a product owner, ask for feedback your last cool app. The sky is the limit. Eventually, Tick.Chat's main aim has your fun/productive time. If the vision got you, keep reading please. 😻
 
