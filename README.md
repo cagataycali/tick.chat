@@ -10,9 +10,8 @@ Tick's main aim is to removing prejudgments. You can chat nearby persons in anon
 
 **But wait, why I did Tick.Chat?** 🤔
 
-Cause those apps wasn't unique. Their visions lightweight. Tick.Chat's vision is solid as well a rock, UI, UX is lightweight. Even, Tick.Chat is open source. :muscle:
 If an app says you, "Hey, you can chat anonymously!", the app mustn't have registration step. The app shouldn't ask gender, name, profile picture and whatever which your personal identity.
-If the app asks, we have to think about our privacy. I thought a lot. That's the reason I write Tick.Chat.
+If the app asks, we have to think about our privacy. I thought a lot. That's the reason I write Tick.Chat. Tick's vision is solid and simple, yet both UI and UX are lightweight. And the most exciting thing is it is open source! :muscle:
 
 **What does the app brings you?** :thought_balloon:
 
