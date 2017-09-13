@@ -109,6 +109,9 @@
      }
    },
   created() {
+    let isMobile = window.isMobile();
+    this.options.zoomControl = !isMobile;
+    this.options.streetViewControl = !isMobile;
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(this.initMap,
       (error) => {
@@ -130,10 +133,16 @@
 </script>
 
 <style media="screen">
+  .gm-style-iw {
+    color: #353535
+  }
+@media screen and (max-width: 500px) {
   .gm-style-cc {
     display: none;
   }
   .gm-style-iw {
     color: #353535
   }
+  img[src="https://maps.gstatic.com/mapfiles/api-3/images/google_white5_hdpi.png"]{display:none}
+}
 </style>

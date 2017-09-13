@@ -25,10 +25,13 @@ const store = new Vuex.Store(storeOptions);
 
 Vue.use(Framework7Vue)
 if (process.env.NODE_ENV !== 'production') {
-  Vue.use(VueSocketio, 'http://localhost:3000', store);
+  Vue.use(VueSocketio, 'https://end.tick.chat', store);
+  // Vue.use(VueSocketio, 'http://localhost:3000', store);
 } else {
-  Vue.use(VueSocketio, 'https://service.tick.chat', store);  
+  Vue.use(VueSocketio, 'https://service.tick.chat', store);
 }
+
+// Vue.use(VueSocketio, 'https://service-v2.tick.chat', store);
 
 Vue.use(VueGoogleMaps, {
   installComponents: true,
