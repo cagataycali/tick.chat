@@ -197,9 +197,6 @@ const mutations = {
       }
     }
   },
-  SOCKET_TRENDS: (state, trends) => {
-    state.trends = trends
-  },
   setLocation: (state, location) => {
     try {
       if (state.user.id === location.id) {
@@ -231,8 +228,10 @@ const mutations = {
     }
     state.currentConversation = conversation
   },
+  setTrends: (state, trends) => {
+    state.trends = trends
+  },
   sendMessage: (state, message) => {
-    console.log('Send message yerine geldi canım burası ya..')
     try {
       let conversation = state.conversations.find(conversation => conversation.id === state.currentConversation.id)
       conversation.messages.push(message)
@@ -242,9 +241,6 @@ const mutations = {
       if (!conversation.messages) conversation.messages = []
       conversation.messages.push(message)
       conversation.text = message.text
-      console.log('Bu bir trende gönderilen mesaj olabilir', message)
-    } finally {
-
     }
   },
   init: (state, bool) => {
@@ -264,6 +260,9 @@ const actions = {
   },
   sendMessage (context, message) {
     context.commit('sendMessage', message)
+  },
+  setTrends (context, trends) {
+    context.commit('setTrends', trends)
   },
   init (context, bool) {
     context.commit('init', bool)

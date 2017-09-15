@@ -58,4 +58,6 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 ----
 
+*Any problem, please open a [issue](https://github.com/cagataycali/tick.chat/issues/new)*
+
 # 🕶

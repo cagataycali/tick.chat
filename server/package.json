@@ -1,5 +1,5 @@
 {
-  "name": "tick.chat.server",
+  "name": "tick.chat",
   "version": "1.0.0",
   "description": "Chat nearby. Instant, Secure, Anonymously.",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "engines": {
-    "node": "7.x"
+    "node": "8.x"
   },
   "repository": "https://github.com/cagataycali/tick.chat",
   "author": "Çağatay Çalı",

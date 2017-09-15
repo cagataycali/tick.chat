@@ -1,6 +1,11 @@
 <template>
     <f7-page navbar-fixed name="groupChat">
-      <f7-navbar :title="conversationtTitle" back-link="Back" sliding></f7-navbar>
+      <f7-navbar back-link="Back">
+        <f7-nav-center sliding>{{conversationtTitle}}</f7-nav-center>
+        <f7-nav-right>
+          <f7-link icon="icon fa fa-podcast" style="font-size:1.5em" open-panel="right"></f7-link>
+        </f7-nav-right>
+      </f7-navbar>
       <f7-messages scrollMessagesOnlyOnEdge class="chats">
           <f7-message v-for="message in messages"
           :key="message.id"
@@ -76,8 +81,6 @@
         this.messages = this.$store.state.currentConversation.messages
       } catch (e) {
         console.log(e);
-      } finally {
-        console.log('Chat created');
       }
     }
   }

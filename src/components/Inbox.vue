@@ -56,9 +56,6 @@ export default {
    ])
   },
   methods: {
-    onChange(event) {
-      console.log('Change', event);
-    },
     getConversationPath(id, isGroup) {
       return `/${isGroup ? 'group' : 'conversation'}/${id}`;
     },
