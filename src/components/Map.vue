@@ -46,8 +46,8 @@
       return {
         zoom: 5,
         center: {
-          lat: 38.48364417061425,
-          lng: 34.3419155984375
+          lat: 38,
+          lng: 34
         },
         init: false,
         options: {
@@ -91,7 +91,26 @@
           this.center = myLocation;
           this.zoom = 15;
           this.init = true;
+          // TODO: @cagataycali do it this a function.
+          fetch(`https://trends.tick.chat/${lat.toFixed(0)}/${lng.toFixed(0)}`)
+            .then(res => res.json())
+            .then(res => {
+              this.$store.dispatch('setTrends', res)
+            })
+            .catch(err => {
+              alert(`Request err ${JSON.stringify(err)}`)
+            })
         } else {
+          if (this.$store.state.trends.length === 0) {
+            fetch(`https://trends.tick.chat/${lat.toFixed(0)}/${lng.toFixed(0)}`)
+              .then(res => res.json())
+              .then(res => {
+                this.$store.dispatch('setTrends', res)
+              })
+              .catch(err => {
+                alert(`Request err ${JSON.stringify(err)}`)
+              })
+          }
           console.log('Wow, you\'re moving buddy.');
         }
         this.$store.dispatch('setLocation', myLocation);
@@ -109,11 +128,14 @@
      }
    },
   created() {
+    let isMobile = window.isMobile();
+    this.options.zoomControl = !isMobile;
+    this.options.streetViewControl = !isMobile;
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(this.initMap,
       (error) => {
         if (error.code == error.PERMISSION_DENIED)
-            this.$f7.alert('Gimme location permission pwiz', 'Tick')
+            this.$f7.alert('Tick require your location information. We promise about your location is blurred by default. You can share your exact location If you want. Please share your location and restart page.', 'Tick')
       }, {
         enableHighAccuracy: true,
         timeout: 5000,
@@ -130,10 +152,16 @@
 </script>
 
 <style media="screen">
+  .gm-style-iw {
+    color: #353535
+  }
+@media screen and (max-width: 500px) {
   .gm-style-cc {
     display: none;
   }
   .gm-style-iw {
     color: #353535
   }
+  img[src="https://maps.gstatic.com/mapfiles/api-3/images/google_white5_hdpi.png"]{display:none}
+}
 </style>

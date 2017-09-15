@@ -1,5 +1,5 @@
 <template>
-    <f7-page navbar-fixed name="chat">
+    <f7-page navbar-fixed name="groupChat">
       <f7-navbar back-link="Back">
         <f7-nav-center sliding>{{conversationtTitle}}</f7-nav-center>
         <f7-nav-right>
@@ -7,7 +7,7 @@
         </f7-nav-right>
       </f7-navbar>
       <f7-messages scrollMessagesOnlyOnEdge class="chats">
-        <f7-message v-for="message in messages"
+          <f7-message v-for="message in messages"
           :key="message.id"
           :text="message.text"
           :label="message.label"
@@ -15,6 +15,7 @@
           :name="message.name"
           :avatar="getAvatar(message)"
           :type="message.type"
+          :username="message.name"
           :day="message.day"
           :time="message.time"
         ></f7-message>
@@ -34,7 +35,7 @@
       }
     },
     props: ['id'],
-    methods: {
+    methods: {
       keyPress: function(event) {
         if (this.sendWithEnter) {
           if (event.split('\n').length > 1) {
@@ -58,7 +59,8 @@
         };
         this.$store.dispatch('sendMessage', message);
         message.to = this.$store.state.currentConversation.id
-        message.isTrend = false
+        message.country = this.$store.state.currentConversation.country
+        message.isTrend = true
         this.$socket.emit('message', message)
         clear();
       },
@@ -73,20 +75,10 @@
        'sendWithEnter',
      ])
    },
-   sockets: {
-     disconnected: function(user) {
-       if (this.id === user.id) {
-         this.$f7.alert(`User offline now..`, 'Tick')
-         setTimeout(() => {
-           this.$router.back()
-         }, 500);
-       }
-     }
-   },
     created() {
       try {
         this.$store.dispatch('currentConversation', this.id);
-        this.messages = this.$store.state.currentConversation.messages;
+        this.messages = this.$store.state.currentConversation.messages
       } catch (e) {
         console.log(e);
       }

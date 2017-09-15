@@ -6,38 +6,37 @@
           <f7-page name="map">
             <g-map></g-map>
             <f7-toolbar tabbar v-if="isSocketConnected">
-              <f7-link icon="icon fa fa-podcast fa-2x" open-popup="#popup"></f7-link>
-              <f7-link icon="icon fa fa-inbox fa-2x" href="/inbox/"></f7-link>
+              <!-- <f7-link icon="icon fa fa-podcast fa-2x" open-popup="#popup"></f7-link> -->
+              <f7-link icon="icon fa fa-bolt fa-2x" href="/inbox/"></f7-link>
             </f7-toolbar>
           </f7-page>
         </f7-pages>
       </f7-view>
     </f7-views>
 
-    <f7-popup id="popup">
-      <f7-view navbar-fixed layout="dark" :theme="theme">
+    <f7-panel right reveal layout="dark" :theme="theme">
+      <f7-view id="right-panel-view" navbar-through :dynamic-navbar="true">
+        <f7-navbar title="Publications" sliding></f7-navbar>
         <f7-pages>
           <f7-page>
-            <f7-navbar>
-              <f7-nav-center>
-                Status & Settings
-              </f7-nav-center>
-              <f7-nav-right>
-                <f7-link close-popup>Close</f7-link>
-              </f7-nav-right>
-            </f7-navbar>
+            <f7-block-title>Announcement</f7-block-title>
 
-            <f7-block><h2>Share your ideas whole world!</h2></f7-block>
+            <f7-block>Announce idea, ask a question, feel free be polite.</f7-block>
 
             <f7-block>
               <f7-list form>
                 <f7-list-item>
-                  <f7-input @input="ideas" type="textarea" :placeholder="user.data || 'Ideas spreads the world!'"></f7-input>
+                  <f7-input v-model="user.data" @input="ideas" type="textarea" :placeholder="user.data || getRandom()"></f7-input>
+                </f7-list-item>
+                <f7-list-item>
+                  <f7-button @click="spread" color="green" style="width: 100%;" no-link-class close-panel :disabled="isDisabled"><span class="icon fa fa-paper-plane faa-pulse animated-hover"></span></f7-button>
                 </f7-list-item>
               </f7-list>
+
+
             </f7-block>
 
-            <f7-block><h2>Publication settings</h2></f7-block>
+            <f7-block-title>Settings</f7-block-title>
 
             <f7-block>
               <f7-list form>
@@ -48,30 +47,50 @@
                     <f7-input type="text" :value="user.username" placeholder="username" disabled/>
                   </f7-list-item>
                   <f7-list-item>
-                    <f7-label>Theme</f7-label>
-                    <f7-input type="select" @change="onChange('theme', $event)">
-                      <option value="green">Green</option>
-                      <option value="blue">Blue</option>
-                      <option value="pink">Pink</option>
-                      <option value="gray">Gray</option>
-                    </f7-input>
-                  </f7-list-item>
-                  <f7-list-item>
-                    <f7-label>Location blur?</f7-label>
+                    <f7-label>Blur? <i>*</i></f7-label>
                     <f7-input type="switch" @change="onChange('blur', $event)" :checked="locationBlur"></f7-input>
                   </f7-list-item>
-                  <f7-list-item>
+                  <!-- <f7-list-item>
                     <f7-label>Send via enter?</f7-label>
                     <f7-input type="switch" @change="onChange('sendWithEnter', $event)" :checked="sendWithEnter"></f7-input>
-                  </f7-list-item>
+                  </f7-list-item> -->
                 </f7-list>
+            </f7-block>
+
+            <f7-block-title>FAQ</f7-block-title>
+
+            <f7-block>
+              <f7-accordion>
+                <!-- Item 1 -->
+                <f7-accordion-item>
+                  <f7-accordion-toggle>What is blur</f7-accordion-toggle>
+                  <f7-accordion-content>
+                    <p>Tick, by default, share your location in privacy. Your exact location is <i>blurred</i>.</p>
+                    <p>If you <b>disable blur option, your current location will be published as exactly</b>.</p>
+                  </f7-accordion-content>
+                </f7-accordion-item>
+                <!-- Item 2 -->
+                <f7-accordion-item>
+                  <f7-accordion-toggle>Privacy</f7-accordion-toggle>
+                  <f7-accordion-content>
+                    <p>* Only the necessary logs and debug information are kept</p>
+                    <p>* Developed features are made available under a Free Software license</p>
+                    <p>* Tick.chat can block your access any time for any reason</p>
+                    <p>* Changes can happen any time, sometimes without notice</p>
+                    <p>* The app, can share your current location with other parties in real time.</p>
+                  </f7-accordion-content>
+                </f7-accordion-item>
+              </f7-accordion>
+            </f7-block>
+
+            <f7-block>
+              <f7-link href="https://github.com/cagataycali/tick.chat" external>Tick.chat is open-source, contributions are welcome!  <span class="icon fa fa-github faa-pulse animated"></span></f7-link>
             </f7-block>
 
           </f7-page>
         </f7-pages>
       </f7-view>
-    </f7-popup>
-
+    </f7-panel>
   </div>
 </template>
 
@@ -89,17 +108,26 @@ export default {
      'sendWithEnter'
    ])
  },
+ data() {
+   return {
+     isDisabled: true
+   };
+ },
  methods: {
-  ideas: _.debounce(function (value) {
-     this.user.data = value;
-     let me = this.$store.state.users.find(user => user.id === this.$store.state.user.id);
-     me.data = value;
-     this.spread(me)
-  }, 3000),
-  spread: _.debounce(function (me) {
-     let {id, data, username} = me;
-     this.$socket.emit('spread', {id, data, username});
-  }, 50),
+   getRandom: function() {
+     let messages = ['happiness must spread to the world.', 'ask a quick solution of making money!', 'ask for help!', 'discuss your idea'];
+     return messages[Math.floor(Math.random()*messages.length)];
+   },
+  ideas: function (value) {
+     this.isDisabled = false;
+  },
+  spread: function () {
+    // let me = this.$store.state.users.find(user => user.id === this.$store.state.user.id);
+    let me = this.$store.state.user;
+    me.data = this.user.data; // This for map info box.
+    this.$socket.emit('spread', me);
+    this.isDisabled = true;
+  },
   onChange: function(type, event) {
     let input = event.target;
     if (type === 'theme') {
@@ -118,7 +146,7 @@ export default {
    Splash
  },
  created() {
-   window.f7 = this.$f7
+  //  window.f7 = this.$f7
    window.addEventListener('beforeinstallprompt', function(e) {
     e.preventDefault();
     return false;
