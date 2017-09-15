@@ -11,7 +11,7 @@ You can help me for coding, typo, grammar issues or whatever type you want.
 -----
 
 
-## Backend 🌚
+## Backend 🌚
 
 Backend coded in NodeJS. [Right here](https://github.com/cagataycali/tick.chat/blob/master/server/)
 
@@ -60,4 +60,4 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 *Any problem, please open a [issue](https://github.com/cagataycali/tick.chat/issues/new)*
 
-# 🕶
+# 🕶
