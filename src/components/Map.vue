@@ -98,7 +98,7 @@
               this.$store.dispatch('setTrends', res)
             })
             .catch(err => {
-              alert(`Request err ${JSON.stringify(err)}`)
+              console.log(`Request err ${JSON.stringify(err)}`)
             })
         } else {
           if (this.$store.state.trends.length === 0) {
@@ -108,7 +108,7 @@
                 this.$store.dispatch('setTrends', res)
               })
               .catch(err => {
-                alert(`Request err ${JSON.stringify(err)}`)
+                console.log(`Request err ${JSON.stringify(err)}`)
               })
           }
           console.log('Wow, you\'re moving buddy.');

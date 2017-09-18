@@ -4,6 +4,7 @@ const geoip = require('geoip-lite')
 
 io.origins(['tick.chat:443'])
 io.serveClient(false)
+io.sockets.setMaxListeners(0)
 
 let users = []
 
