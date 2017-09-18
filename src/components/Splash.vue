@@ -1,11 +1,25 @@
 <template>
   <div class='centerWrapper'>
     <div class='centerMap'> <i style="font-size: 6em;" id="splash" class="fa fa-check faa-bounce animated"></i></div>
+    <div class='centerMap' align="center" style="margin-top:55px"> {{slogan}} </div>
+
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      slogan: ""
+    }
+  },
+  created() {
+    this.slogan = randomSlogan()
+    setInterval(() => {
+      this.slogan = randomSlogan()
+    }, 2500);
+  }
+}
 </script>
 
 <style media="screen">
