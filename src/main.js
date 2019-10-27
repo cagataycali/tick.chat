@@ -33,7 +33,7 @@ if (process.env.NODE_ENV !== 'production') {
 Vue.use(VueGoogleMaps, {
   installComponents: true,
   load: {
-    key: 'AIzaSyAtqD_l_4vyozCzMKu_SRZbxPYALDOhFfQ'
+    key: 'AIzaSyBxrCu-1GpPtFGiD3FVcqOjzsU7lR-OfX0'
   }
 })
 
