@@ -2,7 +2,7 @@ const io = require('socket.io')()
 const userify = require('userify')
 const geoip = require('geoip-lite')
 
-io.origins(['tick.chat:443'])
+io.origins(['*'])
 io.serveClient(false)
 io.sockets.setMaxListeners(0)
 
@@ -26,7 +26,7 @@ io.on('connection', async (socket) => {
   }
   socket.join(country)
 
-  const findOrCreate = (id) => users.find(user => user.id === id) || createUser({username: userify(), id: socket.id, position: {lat, lng}, data: '', country})
+  const findOrCreate = (id) => users.find(user => user.id === id) || createUser({ username: userify(), id: socket.id, position: { lat, lng }, data: '', country })
 
   io.to(socket.id).emit('user_credentials', findOrCreate(socket.id))
   io.to(socket.id).emit('users', users)
@@ -45,8 +45,8 @@ io.on('connection', async (socket) => {
 
   socket.on('message', (message) => {
     if (message.isTrend) {
-      let {name, text, date, isTrend, to} = message
-      io.to(message.country).emit('message', {name, text, date, isTrend, to})
+      let { name, text, date, isTrend, to } = message
+      io.to(message.country).emit('message', { name, text, date, isTrend, to })
     } else {
       io.to(message.to).emit('message', message)
     }
@@ -55,14 +55,14 @@ io.on('connection', async (socket) => {
   socket.on('spread', (obj) => {
     let user = findOrCreate(socket.id)
     user.data = obj.data
-    let {id, username} = user
-    io.to(obj.country).emit('spread', {id, name: username, username: username, day: obj.data})
+    let { id, username } = user
+    io.to(obj.country).emit('spread', { id, name: username, username: username, day: obj.data })
   })
 
   socket.on('disconnect', function () {
     console.log('user disconnected')
     users = users.filter(user => user.id !== socket.id)
-    socket.broadcast.emit('disconnected', {id: socket.id})
+    socket.broadcast.emit('disconnected', { id: socket.id })
   })
 })
 
