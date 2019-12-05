@@ -2,7 +2,7 @@ const io = require('socket.io')()
 const userify = require('userify')
 const geoip = require('geoip-lite')
 
-io.origins(['*'])
+// io.origins(['*'])
 io.serveClient(false)
 io.sockets.setMaxListeners(0)
 
