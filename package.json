@@ -13,7 +13,7 @@
     "framework7": "^1.6.4",
     "framework7-vue": "^0.9.2",
     "vue": "^2.3.3",
-    "vue-socket.io": "^2.1.1-a",
+    "vue-socket.io": "^3.0.10",
     "vue2-google-maps": "^0.7.10",
     "vuex": "^2.3.1"
   },
