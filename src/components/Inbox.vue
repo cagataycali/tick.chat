@@ -11,7 +11,7 @@
 
     <f7-block-title style="text-align:center">Trends</f7-block-title>
 
-    <f7-list media-list no-border>
+    <!-- <f7-list media-list no-border>
       <f7-list-item v-for="trend in trends"
         :key="trend.id"
         class="inbox-list"
@@ -20,7 +20,7 @@
         media="<img src='/static/hashtag.png' style='width:60px'/>"
         :text="volumeText(trend.volume)"
       ></f7-list-item>
-    </f7-list>
+    </f7-list> -->
 
     <f7-block-title style="text-align:center">Conversations</f7-block-title>
 

@@ -24,16 +24,16 @@ const store = new Vuex.Store(storeOptions)
 
 
 Vue.use(Framework7Vue)
-if (process.env.NODE_ENV !== 'production') {
+// if (process.env.NODE_ENV !== 'production') {
   Vue.use(VueSocketio, 'http://localhost:3000', store)
-} else {
-  Vue.use(VueSocketio, 'https://service.tick.chat', store)
-}
+// } else {
+//   Vue.use(VueSocketio, 'https://service.tick.chat', store)
+// }
 
 Vue.use(VueGoogleMaps, {
   installComponents: true,
   load: {
-    key: 'AIzaSyBxrCu-1GpPtFGiD3FVcqOjzsU7lR-OfX0'
+    key: 'AIzaSyBa7BETOroz4y_bA9HhBkjZgO1pLl8xs9E'
   }
 })
 
